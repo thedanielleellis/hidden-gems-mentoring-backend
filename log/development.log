@@ -94,3 +94,41 @@ Processing by Rails::InfoController#routes as HTML
 Completed 200 OK in 47ms (Views: 25.6ms | ActiveRecord: 0.0ms | Allocations: 9933)
 
 
+Started GET "/" for ::1 at 2021-09-21 12:48:14 -0500
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/danielleellis/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/danielleellis/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.6ms | Allocations: 315)
+Completed 200 OK in 11ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 2450)
+
+
+Started GET "/api/v1/department" for ::1 at 2021-09-21 12:48:24 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/department"):
+  
+Started GET "/api/v1/departments" for ::1 at 2021-09-21 12:48:27 -0500
+Processing by Api::V1::DepartmentsController#index as HTML
+  [1m[36mDepartment Load (1.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  ↳ app/controllers/api/v1/departments_controller.rb:8:in `index'
+Completed 200 OK in 29ms (Views: 9.2ms | ActiveRecord: 13.8ms | Allocations: 5464)
+
+
+Started GET "/api/v1/mentors" for ::1 at 2021-09-21 12:48:34 -0500
+Processing by Api::V1::MentorsController#index as HTML
+  [1m[36mMentor Load (1.3ms)[0m  [1m[34mSELECT "mentors".* FROM "mentors"[0m
+  ↳ app/controllers/api/v1/mentors_controller.rb:7:in `index'
+  [1m[36mDepartment Load (0.5ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/mentors_controller.rb:7:in `index'
+  [1m[36mDepartment Load (0.7ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/mentors_controller.rb:7:in `index'
+  [1m[36mDepartment Load (0.3ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/mentors_controller.rb:7:in `index'
+  [1m[36mDepartment Load (0.5ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/mentors_controller.rb:7:in `index'
+  [1m[36mDepartment Load (0.4ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/mentors_controller.rb:7:in `index'
+  [1m[36mDepartment Load (0.4ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/mentors_controller.rb:7:in `index'
+Completed 200 OK in 95ms (Views: 69.4ms | ActiveRecord: 16.3ms | Allocations: 13481)
+
+
