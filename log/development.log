@@ -29,3 +29,68 @@ Migrating to CreateMentors (20210921171340)
   [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1373887031671213815)[0m
   [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mMentor Load (1.2ms)[0m  [1m[34mSELECT "mentors".* FROM "mentors" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mDepartment Load (1.3ms)[0m  [1m[34mSELECT "departments".* FROM "departments" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mDepartment Load (1.3ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  [1m[36mMentor Load (0.9ms)[0m  [1m[34mSELECT "mentors".* FROM "mentors"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Create (1.8ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Technology"], ["created_at", "2021-09-21 17:18:44.180504"], ["updated_at", "2021-09-21 17:18:44.180504"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Create (0.4ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Administration"], ["created_at", "2021-09-21 17:18:44.186843"], ["updated_at", "2021-09-21 17:18:44.186843"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Create (0.4ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Operations"], ["created_at", "2021-09-21 17:18:44.189324"], ["updated_at", "2021-09-21 17:18:44.189324"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Create (0.3ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Account & Finance"], ["created_at", "2021-09-21 17:18:44.191683"], ["updated_at", "2021-09-21 17:18:44.191683"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Create (0.3ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Sales & Marketing"], ["created_at", "2021-09-21 17:18:44.193990"], ["updated_at", "2021-09-21 17:18:44.193990"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Create (0.4ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Human Resource"], ["created_at", "2021-09-21 17:18:44.196234"], ["updated_at", "2021-09-21 17:18:44.196234"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Load (0.5ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMentor Create (1.0ms)[0m  [1m[32mINSERT INTO "mentors" ("name", "title", "about", "image_url", "department_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Joseph Gonzalez"], ["title", "Chief Operating Officer"], ["about", "I have been working at the company 20 years and love spotting rising talent!"], ["image_url", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=334&q=80"], ["department_id", 3], ["created_at", "2021-09-21 17:18:44.222364"], ["updated_at", "2021-09-21 17:18:44.222364"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Load (0.3ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMentor Create (0.4ms)[0m  [1m[32mINSERT INTO "mentors" ("name", "title", "about", "image_url", "department_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Naomi Campbell"], ["title", "Chief Technology Officer"], ["about", "I have been mentored throughout my career and I am here to return the gift of mentorship."], ["image_url", "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"], ["department_id", 1], ["created_at", "2021-09-21 17:18:44.226640"], ["updated_at", "2021-09-21 17:18:44.226640"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Load (0.3ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMentor Create (0.4ms)[0m  [1m[32mINSERT INTO "mentors" ("name", "title", "about", "image_url", "department_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Jane Landly"], ["title", "Administrative Manager"], ["about", "If your goal is to get into upper management I have the resources you need!"], ["image_url", "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"], ["department_id", 2], ["created_at", "2021-09-21 17:18:44.229932"], ["updated_at", "2021-09-21 17:18:44.229932"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Load (0.6ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mMentor Create (0.4ms)[0m  [1m[32mINSERT INTO "mentors" ("name", "title", "about", "image_url", "department_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Ben Stone"], ["title", "Chief Accountant"], ["about", "I enjoy my work and I like to help bringing joy to the work environment."], ["image_url", "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"], ["department_id", 4], ["created_at", "2021-09-21 17:18:44.234182"], ["updated_at", "2021-09-21 17:18:44.234182"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Load (0.2ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mMentor Create (0.6ms)[0m  [1m[32mINSERT INTO "mentors" ("name", "title", "about", "image_url", "department_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Tyler Nix"], ["title", "Sales Manager"], ["about", "I am a people-person and can help bring you out your shell!"], ["image_url", "https://images.unsplash.com/photo-1514222709107-a180c68d72b4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80"], ["department_id", 5], ["created_at", "2021-09-21 17:18:44.239550"], ["updated_at", "2021-09-21 17:18:44.239550"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Load (0.3ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMentor Create (0.6ms)[0m  [1m[32mINSERT INTO "mentors" ("name", "title", "about", "image_url", "department_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Sarah Pope"], ["title", "Human Resource Manager"], ["about", "I have been at the company for 10 years and I would love to share the knowledge that I've gained."], ["image_url", "https://images.unsplash.com/photo-1507331789086-893e9003c0e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"], ["department_id", 6], ["created_at", "2021-09-21 17:18:44.244717"], ["updated_at", "2021-09-21 17:18:44.244717"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMentor Load (0.6ms)[0m  [1m[34mSELECT "mentors".* FROM "mentors" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mDepartment Load (1.0ms)[0m  [1m[34mSELECT "departments".* FROM "departments" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/api/v1/users" for ::1 at 2021-09-21 12:26:56 -0500
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/users"):
+  
+Started GET "/rails/info/routes" for ::1 at 2021-09-21 12:27:10 -0500
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /Users/danielleellis/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/layouts/application.html.erb
+  Rendering /Users/danielleellis/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/danielleellis/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [36 times] (Duration: 12.7ms | Allocations: 4125)
+  Rendered /Users/danielleellis/.rvm/gems/ruby-2.6.1/gems/actionpack-6.1.4.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 1.4ms | Allocations: 690)
+  Rendered /Users/danielleellis/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 19.5ms | Allocations: 7237)
+  Rendered layout /Users/danielleellis/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/layouts/application.html.erb (Duration: 20.6ms | Allocations: 7476)
+Completed 200 OK in 47ms (Views: 25.6ms | ActiveRecord: 0.0ms | Allocations: 9933)
+
+
